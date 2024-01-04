@@ -1,0 +1,13 @@
+version: "3"
+services:
+  app_server:
+    image: "$ECR_REGISTRY/$APP_NAME-$APP_ENV:latest"
+    build:
+      context: .
+      dockerfile: "Dockerfile-prod"
+      args:
+        - APP_ENV=$APP_ENV
+        - FLASK_APP=main
+        - REDIS_URL=$REDIS_URL
+    ports:
+      - "443:443"

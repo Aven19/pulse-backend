@@ -1,0 +1,6 @@
+[flake8]
+exclude = migrations/*, providers/amazon_sp_client.py, providers/amazon_ads_api.py, app/models/__init__.py, app/helpers/sign_helper.py
+ignore = E203, E266, E501, W503, F403, F401, W605, E711
+max-line-length = 79
+max-complexity = 18
+select = B,C,E,F,W,T4,B9

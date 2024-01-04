@@ -1,0 +1,40 @@
+FROM ubuntu:jammy
+
+WORKDIR /ecomm-pulse-backend
+COPY . .
+COPY aws-supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY .aws/credentials /root/.aws/credentials
+
+RUN apt update
+RUN apt install -y curl
+RUN apt install -y jq
+RUN apt install -y python3-pip
+RUN apt install -y supervisor
+# RUN apt install -y redis-server
+RUN apt install -y nginx
+RUN apt install -y --no-install-recommends libmagic1
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+RUN rm /etc/nginx/sites-enabled/default
+CMD ["/usr/bin/supervisord","-n"]
+
+COPY nginx.prod.conf /etc/nginx/conf.d/nginx.conf
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
+COPY post_deployment.sh ./
+RUN chmod a+x post_deployment.sh
+
+ARG APP_ENV
+ARG FLASK_APP
+ARG REDIS_URL
+
+RUN echo $APP_ENV
+RUN echo $FLASK_APP
+RUN echo $REDIS_URL
+
+ENV FLASK_APP=$FLASK_APP
+ENV APP_ENV=$APP_ENV
+ENV REDIS_URL=$REDIS_URL
+
+ENTRYPOINT ["/usr/bin/supervisord"]
