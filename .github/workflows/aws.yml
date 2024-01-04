@@ -1,0 +1,160 @@
+# This workflow will build and push a new container image to Amazon ECR,
+# and then will deploy a new task definition to Amazon ECS, when there is a push to the "main" branch.
+#
+# To use this workflow, you will need to complete the following set-up steps:
+#
+# 1. Create an ECR repository to store your images.
+#
+# 2. Store an IAM user access key in GitHub Actions secrets named `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and 'AWS_REGION'.
+
+name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches: [ "prod", "staging"]
+
+permissions:
+  contents: read
+
+jobs:
+  env-selector:
+    # We run a build job off any branch other than deploy and main.
+    # This sets the env to use develop env credentials.
+    runs-on: ubuntu-latest
+    steps:
+      - id: env-condition
+        run: |
+          if [ "${{ github.event_name }}" == "push" ] && [ "${{ github.ref }}" == 'refs/heads/prod' ]
+          then
+            echo "environment=prod" >> $GITHUB_OUTPUT
+            echo "app_name=ep-backend" >> $GITHUB_OUTPUT
+            echo "set to prod"
+          elif [ "${{ github.event_name }}" == "push" ] && [ "${{ github.ref }}" == 'refs/heads/staging' ]
+          then
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "app_name=ep-backend" >> $GITHUB_OUTPUT
+            echo "set to staging"
+          fi
+
+    # Map a step output to a job output
+    outputs:
+      env: ${{ steps.env-condition.outputs.environment}}
+      app: ${{ steps.env-condition.outputs.app_name}}
+
+  infra-deploy:
+    name: Infrastructure Deployment
+    needs:
+      - env-selector
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{needs.env-selector.outputs.env}}
+    outputs:
+      redis_server_ip: ${{ steps.terraform-apply.outputs.redis_server_ip}}
+      # server_endpoint: ${{ steps.terraform-apply.outputs.server_endpoint}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Terraform setup
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+          # aws-session-token: '${{ secrets.AWS_SESSION_TOKEN }}'
+          aws-region: '${{ secrets.AWS_REGION }}'
+
+      - name: Get Terraform Variables
+        env:
+          APP_ENV: ${{needs.env-selector.outputs.env}}
+          APP_NAME: ${{needs.env-selector.outputs.app}}
+          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+        run: |
+          mkdir .aws
+          cd .aws
+          printf "[default] \n aws_access_key_id = %s \n aws_secret_access_key = %s" ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }} > credentials
+          cd ..
+          aws s3 cp s3://$APP_NAME-${APP_ENV}-tf-variables/backend_$APP_ENV.tfvars ./vars.tfvars
+
+      - name: Get Terraform Backup Files
+        env:
+          APP_ENV: ${{needs.env-selector.outputs.env}}
+          APP_NAME: ${{needs.env-selector.outputs.app}}
+        run: |
+          aws s3 cp s3://$APP_NAME-${APP_ENV}-tf-variables/terraform-backup-$APP_ENV/ ./terraform --recursive --exclude '*' --include '.terraform*' --include 'terraform.*'
+
+      - name: Terraform Initialization
+        run: |
+          terraform -chdir=terraform init -reconfigure -var-file=./../vars.tfvars
+
+      - id: terraform-apply
+        name: Terraform Apply
+        run: |
+          terraform -chdir=terraform apply -input=false -auto-approve -var-file=./../vars.tfvars
+          echo "redis_server_ip=$(terraform -chdir=terraform output redis_server_ip)" >> $GITHUB_OUTPUT
+          # echo "server_endpoint=$(terraform -chdir=terraform output server_endpoint)" >> $GITHUB_OUTPUT
+
+      - name: Terraform Back Up
+        env:
+          APP_ENV: ${{needs.env-selector.outputs.env}}
+          APP_NAME: ${{needs.env-selector.outputs.app}}
+        run: |
+          aws s3 cp ./terraform s3://$APP_NAME-${APP_ENV}-tf-variables/terraform-backup-$APP_ENV/ --recursive --exclude '*' --include 'terraform.*'
+
+      # - name: Terraform Destroy
+      #   run: |
+      #     terraform -chdir=terraform destroy -input=false -auto-approve -var-file=./../vars.tfvars
+
+  code-deploy:
+    name: Code Deploy
+    needs:
+      - env-selector
+      - infra-deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{needs.env-selector.outputs.env}}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+        aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+        aws-region: '${{ secrets.AWS_REGION }}'
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        APP_NAME: ${{needs.env-selector.outputs.app}}
+        APP_ENV: ${{needs.env-selector.outputs.env}}
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REDIS_URL: ${{ needs.infra-deploy.outputs.redis_server_ip }}
+        # SERVER_URL: ${{ needs.infra-deploy.outputs.server_endpoint }}
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        mkdir .aws
+        cd .aws
+        printf "[default] \n aws_access_key_id = %s \n aws_secret_access_key = %s" ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }} > credentials
+        cd ..
+        echo 'ecomm-pulse-admin:$apr1$7pDQk8T6$'${{secrets.SWAGGER_AUTH_KEY}} > .htpasswd
+        aws s3 cp s3://$APP_NAME-$APP_ENV-config/.env.$APP_ENV ./ecomm-pulse-backend/.env
+        docker-compose build
+        docker push $ECR_REGISTRY/$APP_NAME-$APP_ENV:latest
+    - name: Restart Cluster Service
+      env:
+        APP_ENV: ${{needs.env-selector.outputs.env}}
+        APP_NAME: ${{needs.env-selector.outputs.app}}
+      run: |
+        aws ecs update-service --cluster "${APP_NAME}-${APP_ENV}-ecs-cluster" --service "${APP_NAME}-${APP_ENV}-ecs-service" --force-new-deployment
