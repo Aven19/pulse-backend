@@ -1,0 +1,83 @@
+{% extends "emails/base.html" %} {% block main %}
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 24px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 36px;
+        color: #002858;
+      "
+    >
+    {% if data.invited_user_first_name %}
+        Hi {{ data.invited_user_first_name }},
+    {% else %}
+        Hi,
+    {% endif %}
+    </p>
+  </td>
+</tr>
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 16px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 24px;
+        color: #3d3d3d;
+      "
+    >
+      {{ data.mail_msg }} - <b><u>{{ data.invited_by_legal_name }}</u></b>
+      <br><br>
+      Get started, click on the below link -
+      <br>
+      <a href="{{ data.accept_url }}" style="text-decoration: none; color: #fff; background-color: #A06EFD; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 10px; margin-bottom: 10px; transition: background-color 0.3s;">Accept invitation</a>
+      <br>
+      If you have any questions or need assistance in making the most of your EcommPulse account, please feel free to reach out to our support team at <a href="mailto:support@ecommpulse.com">support@ecommpulse.com</a>
+      <br><br>
+      Once again, welcome to EcommPulse. We're excited to have you on board!
+    </p>
+  </td>
+</tr>
+
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+  </td>
+</tr>
+
+{% endblock %}

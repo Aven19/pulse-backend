@@ -1,0 +1,80 @@
+{% extends "emails/base.html" %} {% block main %}
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 24px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 36px;
+        color: #002858;
+      "
+    >
+    {% if data.target_user_first_name %}
+        Hi {{ data.target_user_first_name }},
+    {% else %}
+        Hi,
+    {% endif %}
+    </p>
+  </td>
+</tr>
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 16px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 24px;
+        color: #3d3d3d;
+      "
+    >
+        We regret to inform you that your user access for the account - <b><u>{{ data.account_legal_name}}</u></b>, has been deactivated.
+      <br><br>
+      If you believe this deactivation is in error or would like to discuss this further, please don't hesitate to contact our support team at <a href="mailto:support@ecommpulse.com">support@ecommpulse.com</a>. We are here to assist you with any questions or concerns you may have.
+      <br><br>
+
+      We look forward to providing you with a fantastic experience and valuable services.
+    </p>
+  </td>
+</tr>
+
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+  </td>
+</tr>
+
+{% endblock %}

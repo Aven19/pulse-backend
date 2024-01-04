@@ -1,0 +1,88 @@
+{% extends "emails/base.html" %} {% block main %}
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 24px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 36px;
+        color: #002858;
+      "
+    >
+    {% if data.first_name %}
+        Hi {{ data.first_name }},
+    {% else %}
+        Hi,
+    {% endif %}
+    </p>
+  </td>
+</tr>
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 16px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 24px;
+        color: #3d3d3d;
+      "
+    >
+    <br>
+      We are excited to inform you that your free trial of EcommPulse has officially started. Welcome to the future of e-commerce analytics!
+      <br><br>
+      Key Details:
+      <br>
+      Trial Start Date: {{data.start_date}}
+      <br>
+      Trial Duration: 10 days
+      <br><br>
+      During your free trial, you will have full access to our robust e-commerce platform, empowering you to streamline your operations, boost sales, and enhance your online business.
+      <br><br>
+      If you have any questions, require assistance, or want to explore all the features EcommPulse has to offer, please don't hesitate to reach out to our support team at <a href="mailto:support@ecommpulse.com">support@ecommpulse.com</a>. We're here to guide you through your trial and help you get the most out of our platform.
+      <br><br>
+      Thank you for choosing EcommPulse. We're excited to be part of your e-commerce journey!
+    </p>
+  </td>
+</tr>
+
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+  </td>
+</tr>
+
+{% endblock %}

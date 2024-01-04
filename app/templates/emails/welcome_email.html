@@ -1,0 +1,80 @@
+{% extends "emails/base.html" %} {% block main %}
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        font-size: 24px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 36px;
+        color: #002858;
+      "
+    >
+    {% if data.first_name %}
+        Hi {{ data.first_name }},
+    {% else %}
+        Hi,
+    {% endif %}
+    </p>
+  </td>
+</tr>
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        font-size: 16px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 24px;
+        color: #3d3d3d;
+      "
+    >
+      Welcome aboard! <b>Your account has been created.</b>
+      <br><br>
+      We're thrilled to welcome you to our {{ data.app_name }} family! 🎉
+      <br><br>
+      If you have any questions or encounter any issues, please don't hesitate to reach out to our support team at <a href="mailto:support@ecommpulse.com">support@ecommpulse.com</a>. We're here to assist you with any inquiries or concerns.
+      <br>
+      <br>
+      We look forward to providing you with a fantastic experience and valuable services.
+    </p>
+  </td>
+</tr>
+
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+  </td>
+</tr>
+
+{% endblock %}

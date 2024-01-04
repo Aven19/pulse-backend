@@ -1,0 +1,80 @@
+{% extends "emails/base.html" %} {% block main %}
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 24px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 36px;
+        color: #002858;
+      "
+    >
+    {% if data.first_name %}
+        Hi {{ data.first_name }},
+    {% else %}
+        Hi,
+    {% endif %}
+    </p>
+  </td>
+</tr>
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+    <p
+      style="
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        mso-line-height-rule: exactly;
+        font-size: 16px;
+        font-family: arial, 'helvetica neue', helvetica, sans-serif;
+        line-height: 24px;
+        color: #3d3d3d;
+      "
+    >
+        We are thrilled to inform you that your Amazon Seller account has been seamlessly connected to EcommPulse. We are currently syncing your data, and it could take around 48 hours. Once data sync is completed, you can now enjoy the benefits of our platform to track sales and profits, and maximize your e-commerce potential.
+      <br><br>
+      If you have any questions or need assistance in making the most of your EcommPulse account, please feel free to reach out to our support team at <a href="mailto:support@ecommpulse.com">support@ecommpulse.com</a>. We're here to help you every step of the way.
+      <br><br>
+
+      Thank you for choosing EcommPulse. We look forward to helping you achieve e-commerce success.
+    </p>
+  </td>
+</tr>
+
+<tr style="border-collapse: collapse">
+  <td
+    align="left"
+    style="
+      padding: 0;
+      margin: 0;
+      padding-top: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+    "
+  >
+  </td>
+</tr>
+
+{% endblock %}

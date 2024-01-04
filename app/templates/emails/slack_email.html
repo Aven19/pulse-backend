@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% if data.env %}
+      <title>Error Notification - {{ data.env }}</title>
+    {% else %}
+      <title>Error Notification</title>
+    {% endif %}
+  </head>
+  <body>
+    {% if data.env %}
+      <h1>Error Notification - {{ data.env }}</h1>
+    {% else %}
+      <h1>Error Notification</h1>
+    {% endif %}
+
+    {% if data.report_list %} Failed report:
+      <ul>
+        {% for report in data.report_list %}
+          <li>
+            {{ report }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if data.error_message %}
+      <p>
+        Error Message: {{ data.error_message }}
+      </p>
+    {% endif %}
+
+    {% if data.traceback_info %}
+      <p>Traceback Information:</p>
+      <pre>
+        {{ data.traceback_info }}
+      </pre>
+    {% endif %}
+
+  </body>
+</html>

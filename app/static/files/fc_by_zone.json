@@ -1,0 +1,207 @@
+[
+    {
+        "Fulfillment Center": "KEOZ",
+        "State": "WEST BENGAL",
+        "Zone": "East Zone"
+    },
+    {
+        "Fulfillment Center": "DED3",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "DEL2",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "DEL3",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "DEL4",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "DEL5",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "DEL6",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "KEP0",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "QNZZ",
+        "State": "HARYANA",
+        "Zone": "North Zone"
+    },
+    {
+        "Fulfillment Center": "BLR4",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "BLR5",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "BLR7",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "BLR8",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "QSIY",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "QSMU",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "QSXF",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "XSIJ",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "XSNK",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "XSQD",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "XSSP",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "HYD3",
+        "State": "TELANGANA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "HYD8",
+        "State": "TELANGANA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "MAA4",
+        "State": "TAMIL NADU",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "MAA8",
+        "State": "TAMIL NADU",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "AMD2",
+        "State": "GUJARAT",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "BOM5",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "BOM6",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "BOM7",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "NAG1",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "QWNS",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "SBOE",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "TPSQ",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "XSSB",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "XSSR",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "BOM4",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "ISK3",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "PNQ3",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "BOM3",
+        "State": "MAHARASHTRA",
+        "Zone": "West Zone"
+    },
+    {
+        "Fulfillment Center": "FBLF",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "FBLJ",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    },
+    {
+        "Fulfillment Center": "FBLL",
+        "State": "KARNATAKA",
+        "Zone": "South Zone"
+    }
+]

@@ -1,0 +1,352 @@
+[
+    {
+        "name": "Free",
+        "reference_plan_id": "ECOMM_FREE_TRAIL",
+        "period": "weekly",
+        "status": "ACTIVE",
+        "amount": 0,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": true,
+                "marketplace_breakdown": true,
+                "business_report": true,
+                "sales_by_region": true
+            },
+            "financial_control_center": {
+                "profit_and_loss": true,
+                "movers_and_shakers": true,
+                "item_performance": true
+            },
+            "marketing_analytics": {
+                "impact_graph": true,
+                "sales_conversion": true,
+                "cost_vs_advertising": true,
+                "growth_opportunities": true,
+                "marketing_item_performance": true
+            },
+            "inventory_anager": {
+                "inventory_by_item": true,
+                "inventory_by_location": true,
+                "inventory_status": true,
+                "x-ray": true
+            },
+            "reimbursement_profit_recovery": true,
+            "review_automation": true,
+            "keyword_planner": true,
+            "brand analytics": {
+                "market_basket": true,
+                "repeat_customer": true,
+                "sentiment_analysis": true,
+                "sales_by_geography": true
+            },
+            "glance_view_planner": true,
+            "no_of_users": 1,
+            "number_of_orders_per_month": 10000,
+            "historical_data": "1 Month",
+            "customer_support": true
+        },
+        "description": "Free - 7 Day trial"
+    },
+    {
+        "name": "Silver",
+        "reference_plan_id": "plan_MhepjOZcOXNt5d",
+        "period": "monthly",
+        "status": "ACTIVE",
+        "amount": 50000,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": true,
+                "marketplace_breakdown": true,
+                "business_report": true,
+                "sales_by_region": false
+            },
+            "financial_control_center": {
+                "profit_and_loss": true,
+                "movers_and_shakers": true,
+                "item_performance": false
+            },
+            "marketing_analytics": {
+                "impact_graph": true,
+                "sales_conversion": true,
+                "cost_vs_advertising": true,
+                "growth_opportunities": false,
+                "marketing_item_performance": false
+            },
+            "inventory_anager": {
+                "inventory_by_item": true,
+                "inventory_by_location": false,
+                "inventory_status": false,
+                "x-ray": false
+            },
+            "reimbursement_profit_recovery": false,
+            "review_automation": false,
+            "keyword_planner": false,
+            "brand analytics": {
+                "market_basket": false,
+                "repeat_customer": false,
+                "sentiment_analysis": false,
+                "sales_by_geography": false
+            },
+            "glance_view_planner": false,
+            "no_of_users": 1,
+            "number_of_orders_per_month": 10000,
+            "historical_data": "1 Month",
+            "customer_support": false
+        },
+        "description": "Silver - monthly"
+    },
+    {
+        "name": "Silver",
+        "reference_plan_id": "plan_Mheqe0yBkJgu7i",
+        "period": "yearly",
+        "status": "ACTIVE",
+        "amount": 600000,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": true,
+                "marketplace_breakdown": true,
+                "business_report": true,
+                "sales_by_region": false
+            },
+            "financial_control_center": {
+                "profit_and_loss": true,
+                "movers_and_shakers": true,
+                "item_performance": false
+            },
+            "marketing_analytics": {
+                "impact_graph": true,
+                "sales_conversion": true,
+                "cost_vs_advertising": true,
+                "growth_opportunities": false,
+                "marketing_item_performance": false
+            },
+            "inventory_anager": {
+                "inventory_by_item": true,
+                "inventory_by_location": false,
+                "inventory_status": false,
+                "x-ray": false
+            },
+            "reimbursement_profit_recovery": false,
+            "review_automation": false,
+            "keyword_planner": false,
+            "brand analytics": {
+                "market_basket": false,
+                "repeat_customer": false,
+                "sentiment_analysis": false,
+                "sales_by_geography": false
+            },
+            "glance_view_planner": false,
+            "no_of_users": 1,
+            "number_of_orders_per_month": 10000,
+            "historical_data": "1 Month",
+            "customer_support": false
+        },
+        "description": "Silver - yearly"
+    },
+    {
+        "name": "Gold",
+        "reference_plan_id": "plan_MherOiEZmqT5Ma",
+        "period": "monthly",
+        "status": "ACTIVE",
+        "amount": 70000,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": true,
+                "marketplace_breakdown": true,
+                "business_report": true,
+                "sales_by_region": true
+            },
+            "financial_control_center": {
+                "profit_and_loss": true,
+                "movers_and_shakers": true,
+                "item_performance": true
+            },
+            "marketing_analytics": {
+                "impact_graph": true,
+                "sales_conversion": true,
+                "cost_vs_advertising": true,
+                "growth_opportunities": true,
+                "marketing_item_performance": true
+            },
+            "inventory_anager": {
+                "inventory_by_item": true,
+                "inventory_by_location": true,
+                "inventory_status": true,
+                "x-ray": true
+            },
+            "reimbursement_profit_recovery": true,
+            "review_automation": true,
+            "keyword_planner": true,
+            "brand analytics": {
+                "market_basket": true,
+                "repeat_customer": true,
+                "sentiment_analysis": true,
+                "sales_by_geography": true
+            },
+            "glance_view_planner": true,
+            "no_of_users": 5,
+            "number_of_orders_per_month": null,
+            "historical_data": "1 year",
+            "customer_support": true
+        },
+        "description": "Gold - monthly"
+    },
+    {
+        "name": "Gold",
+        "reference_plan_id": "plan_MhertJNrNJb65Q",
+        "period": "yearly",
+        "status": "ACTIVE",
+        "amount": 840000,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": true,
+                "marketplace_breakdown": true,
+                "business_report": true,
+                "sales_by_region": true
+            },
+            "financial_control_center": {
+                "profit_and_loss": true,
+                "movers_and_shakers": true,
+                "item_performance": true
+            },
+            "marketing_analytics": {
+                "impact_graph": true,
+                "sales_conversion": true,
+                "cost_vs_advertising": true,
+                "growth_opportunities": true,
+                "marketing_item_performance": true
+            },
+            "inventory_anager": {
+                "inventory_by_item": true,
+                "inventory_by_location": true,
+                "inventory_status": true,
+                "x-ray": true
+            },
+            "reimbursement_profit_recovery": true,
+            "review_automation": true,
+            "keyword_planner": true,
+            "brand analytics": {
+                "market_basket": true,
+                "repeat_customer": true,
+                "sentiment_analysis": true,
+                "sales_by_geography": true
+            },
+            "glance_view_planner": true,
+            "no_of_users": 5,
+            "number_of_orders_per_month": null,
+            "historical_data": "1 year",
+            "customer_support": true
+        },
+        "description": "Gold - yearly"
+    },
+    {
+        "name": "Enterprise",
+        "reference_plan_id": "plan_MhesfE4Kf6POPX",
+        "period": "monthly",
+        "status": "ACTIVE",
+        "amount": 100000,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": null,
+                "marketplace_breakdown": null,
+                "business_report": null,
+                "sales_by_region": null
+            },
+            "financial_control_center": {
+                "profit_and_loss": null,
+                "movers_and_shakers": null,
+                "item_performance": null
+            },
+            "marketing_analytics": {
+                "impact_graph": null,
+                "sales_conversion": null,
+                "cost_vs_advertising": null,
+                "growth_opportunities": null,
+                "marketing_item_performance": null
+            },
+            "inventory_anager": {
+                "inventory_by_item": null,
+                "inventory_by_location": null,
+                "inventory_status": null,
+                "x-ray": null
+            },
+            "reimbursement_profit_recovery": null,
+            "review_automation": null,
+            "keyword_planner": null,
+            "brand analytics": {
+                "market_basket": null,
+                "repeat_customer": null,
+                "sentiment_analysis": null,
+                "sales_by_geography": null
+            },
+            "glance_view_planner": null,
+            "no_of_users": null,
+            "number_of_orders_per_month": null,
+            "historical_data": null,
+            "customer_support": null
+        },
+        "description": "Enterprise - monthly"
+    },
+    {
+        "name": "Enterprise",
+        "reference_plan_id": "plan_Mhet4RZ7hFGP4v",
+        "period": "yearly",
+        "status": "ACTIVE",
+        "amount": 1200000,
+        "currency": "INR",
+        "discount": 0,
+        "features": {
+            "executive_summary": {
+                "live_sales_and_units_analytics": null,
+                "marketplace_breakdown": null,
+                "business_report": null,
+                "sales_by_region": null
+            },
+            "financial_control_center": {
+                "profit_and_loss": null,
+                "movers_and_shakers": null,
+                "item_performance": null
+            },
+            "marketing_analytics": {
+                "impact_graph": null,
+                "sales_conversion": null,
+                "cost_vs_advertising": null,
+                "growth_opportunities": null,
+                "marketing_item_performance": null
+            },
+            "inventory_anager": {
+                "inventory_by_item": null,
+                "inventory_by_location": null,
+                "inventory_status": null,
+                "x-ray": null
+            },
+            "reimbursement_profit_recovery": null,
+            "review_automation": null,
+            "keyword_planner": null,
+            "brand analytics": {
+                "market_basket": null,
+                "repeat_customer": null,
+                "sentiment_analysis": null,
+                "sales_by_geography": null
+            },
+            "glance_view_planner": null,
+            "no_of_users": null,
+            "number_of_orders_per_month": null,
+            "historical_data": null,
+            "customer_support": null
+        },
+        "description": "Enterprise - yearly"
+    }
+]

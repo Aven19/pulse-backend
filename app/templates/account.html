@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var urlParams = new URLSearchParams(window.location.hash.substr(1));
+            var accessToken = urlParams.get('access_token');
+            console.log('accessToken', accessToken)
+
+            // Create the request body as JSON
+            var requestBody = {
+                access_token: accessToken
+            };
+
+            // Send the access token to your Flask backend
+            fetch('/api/v1/user/auth/idp/callback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);  // Output the response from the server
+            });
+
+                        // Add click event listeners to the buttons
+            var amazonButton = document.getElementById('amazon-button');
+            amazonButton.addEventListener('click', handleButtonClick);
+
+            var flipkartButton = document.getElementById('flipkart-button');
+            flipkartButton.addEventListener('click', handleButtonClick);
+
+            var shopifyButton = document.getElementById('shopify-button');
+            shopifyButton.addEventListener('click', handleButtonClick);
+        });
+    </script>
+</head>
+<body>
+    <h1>Connect with Market Place</h1>
+    <button id="amazon-button" data-provider="amazon">Connect with Amazon</button>
+    <button id="flipkart-button" data-provider="flipkart">Connect with Flipkart</button>
+    <button id="shopify-button" data-provider="shopify">Connect with Shopify</button>
+</body>
+</html>
