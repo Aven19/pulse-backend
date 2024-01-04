@@ -1,0 +1,70 @@
+APP_ENV: "local"
+FLASK_APP: "main"
+FLASK_DEBUG: "1"
+APP_SECRET: "e3KefKkn6fdkt9QEjbI2wDqWGfWTP2-v9hQoK6owNkg="
+BASE_URL: "http://127.0.0.1:5000/api/v1"
+
+REDIS_KEY_TIMEOUT: 604800
+JWT_SALT: "1234567890"
+HASH_ID_SALT: "0987654321"
+PASSWORD_SALT: "qwertyuiop"
+SECRET_KEY: "123412"
+
+# PostgresSQL
+POSTGRES_USER: "postgres"
+POSTGRES_PW: "postgres"
+POSTGRES_URL: "127.0.0.1:5432"
+POSTGRES_DB: "ecomm-pulse-dev"
+
+RATE_LIMIT:
+  STRATEGY: "moving-window"
+  KEY_PREFIX: "RATE_LIMITING"
+  REDIS_DB: 1
+
+REDIS:
+  HOST: "localhost"
+  PORT: 6379
+  DB: 0
+
+RQ_JOB_TIMEOUT: 100000
+
+SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/ecomm-pulse-dev"
+SQLALCHEMY_TRACK_MODIFICATIONS: False
+SQLALCHEMY_ENGINE_OPTIONS: { "isolation_level": "AUTOCOMMIT" }
+SQLALCHEMY_TEST_DATABASE_URI: "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/ecomm-pulse-test"
+
+UPLOAD_FOLDER: "/opt/edugem/apps/ecomm-pulse-backend/media/"
+LOG_FILE_PATH: "/opt/edugem/logs/ecomm-pulse-api/app.log"
+
+SWAGGER_FILE_NAME: "swagger"
+
+CLOUD_WATCH_REGION: ""
+LOG_GROUP: ""
+LOG_STREAM: ""
+
+#COGNITO
+COGNITO_APP_CLIENT_ID: "7eq8j477usf7j4qngra04e1kcj"
+COGNITO_REGION: "ap-south-1"
+COGNITO_USER_POOL_ID: "ap-south-1_jknGPRCsx"
+COGNITO_DOMAIN_URL: "https://app.staging.ecommpulse.com"
+COGNITO_IDP_CALLBACK_URL : "http://127.0.0.1:5000/api/v1/user/auth/idp/callback/front-end" #Should be Front-End callback URL from where he will collect token and redirect user to home page
+COGNITO_IDP_LOGOUT_URL: "http://127.0.0.1:5000" #Front-End Base URL
+
+# Seller partner
+SP_ID: "A3D3499BOYNHU"
+SP_REFRESH_TOKEN: "Atzr|IwEBIENR2uev9oiMtfqdJEwxBXArRawF0fDZ4-5fvVrk97NHz1GiqYCfSJ3O6xtHHiKbljf3Rb0jBoEwBoc8dDuhXk2VuV8MdrQDtN4IUc_-lclXtkveSDHiJqrQVwF-5KSg2vOKK3Ywo3EIsD5LyriWSP8_n_stoFO1chanVRPj5dFyK0zszrfH09n8_8H0Qmb8RAyadrpuefFXUN9z3wJ3vDjr401yQqXwbDq6vveK0gMlt-IMpnrCZe_Q7lYupJnNPUe0SJO8r0baRyn8RCf_-dj79SpiyI-rVqW7PWIwuIeHjulrgw8m5UQpiMG-OBQTYS8"
+SP_DEFAULT_MARKETPLACE: "https://sellercentral.amazon.in"
+SP_APP_AUTH_CLIENT_ID: "amzn1.sp.solution.af5af046-b7bc-4d2c-9290-ec8838c633a6"
+SP_LWA_APP_ID: "amzn1.application-oa2-client.bf4fa79b52e04551a8af75264153c21c"
+SP_LWA_CLIENT_SECRET: "amzn1.oa2-cs.v1.1b98bb12be7fd535e68874c1e5f2efff3875993f489503b34bfbd7809d912bf7"
+SP_ROLE_ARN: "arn:aws:iam::047976664704:role/ecomm-pulse-seller-app"
+SP_ROLE_SESSION_NAME: "ecomm-pulse-seller-app"
+
+# Amazon AD:
+AZ_AD_CLIENT_ID: "amzn1.application-oa2-client.eaeca6745294442e8931df6ca8d12b7b"
+AZ_AD_CLIENT_SECRET : "amzn1.oa2-cs.v1.1ac656603c0ad07e95b7ea1c2b96d96ee39c352f660a351b99a7a8e89b8a8ed5"
+AZ_AD_CALLBACK_URL: "http://127.0.0.1:5000/api/v1/account/connect/amazon/ads-api/callback/front-end"
+
+WEB_BASE_URL: "http://127.0.0.1:5000"
+WEB_AZ_CALLBACK_URI: "/api/v1/account/connect/amazon/callback/front-end"
+

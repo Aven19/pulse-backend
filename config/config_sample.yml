@@ -1,0 +1,94 @@
+APP_ENV: "local"
+FLASK_APP: "main"
+FLASK_DEBUG: "1"
+APP_SECRET: ""
+BASE_URL: "http://127.0.0.1:5000/api/v1"
+
+# Amazon AD:
+AZ_AD_CLIENT_ID: ""
+AZ_AD_CLIENT_SECRET : ""
+AZ_AD_CALLBACK_URL: "http://frontend-url/api/v1/account/connect/amazon/ads-api/callback/front-end"
+
+CLOUD_WATCH_REGION: ""
+LOG_GROUP: ""
+LOG_STREAM: ""
+
+#COGNITO
+COGNITO_APP_CLIENT_ID: ""
+COGNITO_REGION: ""
+COGNITO_USER_POOL_ID: ""
+COGNITO_DOMAIN_URL: ""
+COGNITO_IDP_CALLBACK_URL : "http://frontend-url/api/v1/user/auth/idp/callback/front-end" #Should be Front-End callback URL from where he will collect token and redirect user to home page
+COGNITO_IDP_LOGOUT_URL: "http://frontend-url" #Front-End Base URL
+
+#mail
+MAIL:
+  MAIL_SERVER: ''
+  MAIL_PORT: 465
+  MAIL_USERNAME: ''
+  MAIL_PASSWORD: ''
+  MAIL_USE_TLS: False
+  MAIL_USE_SSL: True
+  MAIL_DEFAULT_SENDER: 'support@xyz.abc.com'
+  MAIL_DEFAULT_SENDER_NAME: 'Support mail'
+  MAIL_REDIRECT_URL: ''
+
+PAAPI_PARTNER_TAG: ""
+PAAPI_KEY: ""
+PAAPI_SECRET: ""
+PAAPI_REGION: ""
+
+# PostgresSQL
+POSTGRES_USER: "postgres"
+POSTGRES_PW: ""
+POSTGRES_URL: "127.0.0.1:5432"
+POSTGRES_DB: "ecomm-pulse"
+
+RATE_LIMIT:
+  STRATEGY: "moving-window"
+  KEY_PREFIX: "RATE_LIMITING"
+  REDIS_DB: 1
+
+# razorpay
+RAZORPAY:
+  KEY_ID: ""
+  KEY_SECRET: ""
+
+REDIS:
+  HOST: "localhost"
+  PORT: 6379
+  DB: 0
+
+REDIS_KEY_TIMEOUT: 604800
+JWT_SALT: "1234567890"
+HASH_ID_SALT: "0987654321"
+PASSWORD_SALT: "qwertyuiop"
+SECRET_KEY: "123412"
+
+RQ_JOB_TIMEOUT: 100000
+
+SLACK:
+  NOTIFICATION_EMAIL: ""
+
+# Seller partner
+SP_ID: ""
+SP_REFRESH_TOKEN: ""
+SP_DEFAULT_MARKETPLACE: "https://sellercentral.amazon.in"
+SP_APP_AUTH_CLIENT_ID: ""
+SP_LWA_APP_ID: ""
+SP_LWA_CLIENT_SECRET: ""
+SP_ROLE_ARN: ""
+SP_ROLE_SESSION_NAME: ""
+
+SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/ecomm-pulse-dev"
+SQLALCHEMY_TRACK_MODIFICATIONS: False
+SQLALCHEMY_ENGINE_OPTIONS: { "isolation_level": "AUTOCOMMIT" }
+SQLALCHEMY_TEST_DATABASE_URI: "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/ecomm-pulse-test"
+
+SWAGGER_FILE_NAME: "swagger"
+
+UPLOAD_FOLDER: ""
+LOG_FILE_PATH: ""
+
+WEB_BASE_URL: "http://frontend-url"
+WEB_AZ_CALLBACK_URI: "/api/v1/account/connect/amazon/callback/front-end"

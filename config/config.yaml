@@ -1,0 +1,131 @@
+APP_ENV: "local"
+FLASK_APP: "main"
+FLASK_DEBUG: "1"
+APP_SECRET: "e3KefKkn6fdkt9QEjbI2wDqWGfWTP2-v9hQoK6owNkg="
+BASE_URL: "https://3845-103-44-49-216.ngrok-free.app/api/v1"
+
+REDIS_KEY_TIMEOUT: 604800
+JWT_SALT: "1234567890"
+HASH_ID_SALT: "0987654321"
+PASSWORD_SALT: "qwertyuiop"
+SECRET_KEY: "123412"
+
+# PostgresSQL
+POSTGRES_USER: "postgres"
+POSTGRES_PW: "postgres"
+POSTGRES_URL: "127.0.0.1:5432"
+POSTGRES_DB: "ecomm-pulse-dev"
+
+RATE_LIMIT:
+  STRATEGY: "moving-window"
+  KEY_PREFIX: "RATE_LIMITING"
+  REDIS_DB: 1
+
+REDIS:
+  HOST: "localhost"
+  PORT: 6379
+  DB: 0
+
+RQ_JOB_TIMEOUT: 100000
+
+SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/ecomm-pulse-dev"
+SQLALCHEMY_TRACK_MODIFICATIONS: False
+SQLALCHEMY_ENGINE_OPTIONS: { "isolation_level": "AUTOCOMMIT" }
+SQLALCHEMY_TEST_DATABASE_URI: "postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/ecomm-pulse-test"
+
+UPLOAD_FOLDER: "media/"
+LOG_FILE_PATH: "/opt/edugem/logs/ecomm-pulse-api/app.log"
+
+SWAGGER_FILE_NAME: "swagger"
+
+CLOUD_WATCH_REGION: ""
+LOG_GROUP: ""
+LOG_STREAM: ""
+
+#COGNITO
+COGNITO_APP_CLIENT_ID: "7eq8j477usf7j4qngra04e1kcj"
+COGNITO_REGION: "ap-south-1"
+COGNITO_USER_POOL_ID: "ap-south-1_jknGPRCsx"
+COGNITO_DOMAIN_URL: "https://ecomm-pulse-dev.auth.ap-south-1.amazoncognito.com"
+
+# https://ep-staging.auth.ap-south-1.amazoncognito.com/oauth2/authorize?identity_provider=LoginWithAmazon&redirect_uri=https%3A//d294-103-44-49-218.ngrok-free.app/api/v1/user/auth/idp/callback/front-end&response_type=token&client_id=68bmv674d24rldqnmi50hokgos&scope=aws.cognito.signin.user.admin email openid phone profile
+# Hosted domain URL
+COGNITO_IDP_CALLBACK_URL : "https://f931-103-44-49-220.ngrok-free.app/api/v1/user/auth/idp/callback/front-end" #Should be Front-End callback URL from where he will collect token and redirect user to home page
+COGNITO_IDP_LOGOUT_URL: "https://2993-14-142-38-68.ngrok-free.app" #Front-End Base URL
+
+# For prod
+# COGNITO_DOMAIN_URL: "https://ep-staging.auth.ap-south-1.amazoncognito.com"
+# COGNITO_IDP_CALLBACK_URL : "https://f931-103-44-49-220.ngrok-free.app/sales-unit" #Should be Front-End callback URL from where he will collect token and redirect user to home page
+# COGNITO_IDP_LOGOUT_URL: "https://ebc9-103-44-49-220.ngrok-free.app" #Front-End Base URL
+
+# Seller partner
+SP_ID: "A3D3499BOYNHU"
+SP_REFRESH_TOKEN: "Atzr|IwEBIENR2uev9oiMtfqdJEwxBXArRawF0fDZ4-5fvVrk97NHz1GiqYCfSJ3O6xtHHiKbljf3Rb0jBoEwBoc8dDuhXk2VuV8MdrQDtN4IUc_-lclXtkveSDHiJqrQVwF-5KSg2vOKK3Ywo3EIsD5LyriWSP8_n_stoFO1chanVRPj5dFyK0zszrfH09n8_8H0Qmb8RAyadrpuefFXUN9z3wJ3vDjr401yQqXwbDq6vveK0gMlt-IMpnrCZe_Q7lYupJnNPUe0SJO8r0baRyn8RCf_-dj79SpiyI-rVqW7PWIwuIeHjulrgw8m5UQpiMG-OBQTYS8"
+SP_DEFAULT_MARKETPLACE: "https://sellercentral.amazon.in"
+
+SP_APP_AUTH_CLIENT_ID: "amzn1.sp.solution.19ab9a53-d4b8-4233-8692-91b8cedcf666"
+SP_LWA_APP_ID: "amzn1.application-oa2-client.bef81481c1c244658f98f776c5026f9a"
+SP_LWA_CLIENT_SECRET: "amzn1.oa2-cs.v1.e0955bc2a425f1bd27b7ee9493ce1c2f3bdd0a5ceeb14ee98fc5375be303aec9"
+
+# prod sp credentials
+# SP_APP_AUTH_CLIENT_ID: "amzn1.sp.solution.7133076a-4aad-441e-85ff-e1132e00ad3f"
+# SP_LWA_APP_ID: "amzn1.application-oa2-client.d6ded90f2ed64805b9330d562dcd9c42"
+# SP_LWA_CLIENT_SECRET: "amzn1.oa2-cs.v1.5ce647fc6e517c15553142cd3660c192bd2c5a07426f8414c720e993ead1c177"
+
+# SP_LWA_CLIENT_SECRET: "amzn1.oa2-cs.v1.dbba50d552ed602e3588534e637b82821bb8e288d48e80e13e34b6692f3cec7d"
+# second ecomm-pulse
+# SP_APP_AUTH_CLIENT_ID: "amzn1.sp.solution.7133076a-4aad-441e-85ff-e1132e00ad3f"
+# SP_LWA_APP_ID: "amzn1.application-oa2-client.bf4fa79b52e04551a8af75264153c21c"
+# SP_LWA_CLIENT_SECRET: "amzn1.oa2-cs.v1.1b98bb12be7fd535e68874c1e5f2efff3875993f489503b34bfbd7809d912bf7"
+SP_ROLE_ARN: "arn:aws:iam::047976664704:role/ecomm-pulse-seller-app"
+SP_ROLE_SESSION_NAME: "ecomm-pulse-seller-app"
+AWS_KEY: "AKIAQWK5BZ2APOK4FKHP"
+AWS_SECRET: "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"
+AWS_REGION: "eu-west-1"
+AWS_BUCKET: "ep-backend-staging-config"
+
+# Amazon AD:
+AZ_AD_CLIENT_ID: "amzn1.application-oa2-client.eaeca6745294442e8931df6ca8d12b7b"
+AZ_AD_CLIENT_SECRET : "amzn1.oa2-cs.v1.1ac656603c0ad07e95b7ea1c2b96d96ee39c352f660a351b99a7a8e89b8a8ed5"
+# AZ_AD_CLIENT_ID: "amzn1.application-oa2-client.9e0507ece84b4d17aecfb71b4afd5e7c"
+# AZ_AD_CLIENT_SECRET : "amzn1.oa2-cs.v1.9f3d6f64a18b6bbcee2a35344f5f111d9751c0124ccd3bcaf966bff9edba7750"
+# AZ_AD_CALLBACK_URL: "https://a9fc-45-115-187-132.ngrok-free.app/connect-account/sync-callback"
+AZ_AD_CALLBACK_URL: "https://a9fc-45-115-187-132.ngrok-free.app/account/connect/amazon/ads-api/callback/front-end"
+
+WEB_BASE_URL: "https://a9fc-45-115-187-132.ngrok-free.app"
+# WEB_AZ_CALLBACK_URI: "/connect-account/sync-callback"
+WEB_AZ_CALLBACK_URI: "/api/v1/account/connect/amazon/callback/front-end"
+
+ECOMM_USER_EMAIL: "aven.mathias@bombaysoftwares.com"
+# ECOMM_X_ACCOUNT: "518119d2-3f6f-48a0-8d33-d1b575d6160d"
+
+# ECOMM_USER_EMAIL: "testpurposephp@gmail.com"
+ECOMM_X_ACCOUNT: "518119d2-3f6f-48a0-8d33-d1b575d6160d"
+
+FSP_CLIENT_ID: "7112a481414b83a9733b9b0b53a3a2287497"
+FSP_SECRET: "4fc79ab19ae79e98583a6060ccd6af9a"
+WEB_FSP_CALLBACK_URI: "https://f931-103-44-49-220.ngrok-free.app/api/v1/account/connect/flipkart/callback"
+
+PAAPI_PARTNER_TAG: "katalysst05-21"
+PAAPI_KEY: "AKIAIQUN2VBVL5YXXCMQ"
+PAAPI_SECRET: "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"
+PAAPI_REGION: "eu-west-1"
+
+MAIL:
+  MAIL_SERVER: "email-smtp.ap-south-1.amazonaws.com"
+  MAIL_PORT: 465
+  MAIL_USERNAME: "AKIAQWK5BZ2AD632IFOZ"
+  MAIL_PASSWORD: "BPwdVF4HWQp2/hNYGrKFF3F8j8ECHldcdxYxKCAk3KJk"
+  MAIL_USE_TLS: False
+  MAIL_USE_SSL: True
+  MAIL_DEFAULT_SENDER: "support@notification.ecommpulse.com"
+  MAIL_DEFAULT_SENDER_NAME: "Support Ecommpulse"
+  MAIL_REDIRECT_URL: "http://app.staging.ecommpulse.com"
+
+RAZORPAY:
+  KEY_ID: "rzp_test_CWMR49vrXQAi7E"
+  KEY_SECRET: "Vguf84HIwvFkp9WwvxwioweY"
+
+SLACK:
+  NOTIFICATION_EMAIL: "aven.mathias@bombaysoftwares.com"
+  # NOTIFICATION_EMAIL: "ecomm-pulse-notificat-aaaak4rp237wexieeq6lxbikta@bombaysoftwares.slack.com"
